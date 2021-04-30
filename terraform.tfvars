@@ -6,7 +6,7 @@ terragrunt = {
     backend = "s3"
     config {
       encrypt        = true
-      bucket         = "terraform-k8-remote-state-imran2"
+      bucket         = "terraform-k8-remote-state-imran21"
       key            = "${path_relative_to_include()}/terraform.tfstate"
       region         = "us-west-2"
       dynamodb_table = "terraform-lock-imran"
