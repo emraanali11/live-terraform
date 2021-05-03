@@ -1,6 +1,6 @@
 terraform {
   extra_arguments "init_input_false" {
-    commands = ["init"]
+    commands  = ["init"]
     arguments = ["-input=false"]
   }
   extra_arguments "retry_lock" {
@@ -12,10 +12,10 @@ terraform {
 remote_state {
   backend = "s3"
   config = {
-    bucket  = "terraform-k8-remote-state-imran21"
-    key     = "${path_relative_to_include()}/terraform.tfstate"
-    region  = "us-west-2"
-    encrypt = true
+    bucket         = "terraform-k8-remote-state-imran21"
+    key            = "${path_relative_to_include()}/terraform.tfstate"
+    region         = "us-west-2"
+    encrypt        = true
     dynamodb_table = "terraform-lock-imran"
   }
 }
