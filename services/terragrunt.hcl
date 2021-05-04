@@ -14,8 +14,9 @@ terraform  {
       # include globals var assignments - globals.tfvars
       join("/", [
         get_terragrunt_dir(),
-        "../ec2/env/",
-        get_env("TF_VAR_env", "dev")
+        "../../env/ec2",
+        get_env("TF_VAR_env", "dev"),
+        "terraform.tfvars"
       ])]
         }
 }

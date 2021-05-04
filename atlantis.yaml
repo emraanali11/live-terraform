@@ -5,8 +5,8 @@ projects:
     when_modified:
     - '*.hcl'
     - '*.tf*'
-    - env/dev
-  dir: ec2
+    - ../env/
+  dir: services/ec2
 version: 3
 workflows:
   terragrunt:
