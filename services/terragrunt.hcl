@@ -8,10 +8,15 @@ terraform  {
     arguments = ["-lock-timeout=20m"]
   }
   extra_arguments "global_vars" {
-        commands = ["${get_terraform_commands_that_need_locking()}"]
+        commands = get_terraform_commands_that_need_locking()
         required_var_files = [
-          "${get_tfvars_dir()}/../env/ec2/${get_env("TF_VAR_env", "stage")}/terraform.tfvars"
-        ]
+
+      # include globals var assignments - globals.tfvars
+      join("/", [
+        get_terragrunt_dir(),
+        "../ec2/env/",
+        get_env("TF_VAR_env", "dev")
+      ])]
         }
 }
 

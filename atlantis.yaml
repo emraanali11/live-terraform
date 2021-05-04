@@ -1,0 +1,29 @@
+automerge: false
+parallel_apply: true
+parallel_plan: true
+projects:
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - env/dev
+  dir: ec2
+version: 3
+workflows:
+  terragrunt:
+    apply:
+      steps:
+      - run: rm -rf .terraform
+      - env:
+          command: echo "terraform${ATLANTIS_TERRAFORM_VERSION}"
+          name: TERRAGRUNT_TFPATH
+      - run: terragrunt apply -no-color $PLANFILE
+    plan:
+      steps:
+      - run: rm -rf .terraform
+      - env:
+          command: echo "terraform${ATLANTIS_TERRAFORM_VERSION}"
+          name: TERRAGRUNT_TFPATH
+      - run: terragrunt init -input=false -no-color
+      - run: terragrunt plan -no-color -out=$PLANFILE
