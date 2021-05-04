@@ -1,13 +1,7 @@
 version: 3
 projects:
 - name: ec2
-  dir: ../env/ec2/dev
-  workflow: terragrunt
-- name: ec2
-  dir: ../env/ec2/prod
-  workflow: terragrunt
-- name: ec2
-  dir: ../env/ec2/stg
+  dir: ec2
   workflow: terragrunt
 workflows:
  terragrunt:
@@ -17,7 +11,7 @@ workflows:
      - env:
          name: TERRAGRUNT_TFPATH
          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
-     - run: terragrunt init -input=false -no-color
+     - run: terragrunt init -input=false -no-color 
      - run: terragrunt plan -no-color -out=$PLANFILE
    apply:
      steps:

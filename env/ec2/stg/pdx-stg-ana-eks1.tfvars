@@ -1,1 +1,1 @@
-cluster = pdx-stg-ana-eks1
+max_server_count = 3
