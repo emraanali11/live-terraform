@@ -1,9 +1,5 @@
 version: 3
 projects:
-- name: default
-  dir: .
-  autoplan:
-    enabled: false
 - name: ec2
   dir: ../env/ec2/dev
   workflow: terragrunt
