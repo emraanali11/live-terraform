@@ -10,8 +10,7 @@ terraform  {
   extra_arguments "global_vars" {
         commands = ["${get_terraform_commands_that_need_locking()}"]
         required_var_files = [
-          "${get_tfvars_dir()}/../env/ec2/${get_env("TF_VAR_env", "stage")}/env.tfvars",
-          "${get_tfvars_dir()}/../env/ec2/${get_env("TF_VAR_env", "stage")}/${get_env("TF_VAR_cluster_name", "aws_staging")}.tfvars"
+          "${get_tfvars_dir()}/../env/ec2/${get_env("TF_VAR_env", "stage")}/terraform.tfvars"
         ]
         }
 }
