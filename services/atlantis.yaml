@@ -3,6 +3,8 @@ projects:
 - name: ec2
   dir: ec2
   workflow: terragrunt
+  autoplan:
+    enabled: false
 workflows:
  terragrunt:
    plan:
