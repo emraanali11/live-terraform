@@ -13,7 +13,7 @@ workflows:
          name: TERRAGRUNT_TFPATH
          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
      - run: terragrunt init -input=false -no-color
-     - run: terragrunt plan -no-color -out=$PLANFILE -var-file=provisioning/env/$PROJECT_NAME.yaml
+     - run: terragrunt plan -no-color -out=$PLANFILE -var-file=infrastructure/provisioning/env/$PROJECT_NAME.yaml
    apply:
      steps:
      - env:
