@@ -1,7 +1,7 @@
 version: 3
 projects:
 - name: ec2
-  dir: ec2
+  dir: services/ec2
   workflow: terragrunt
 workflows:
  terragrunt:
