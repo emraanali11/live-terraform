@@ -7,6 +7,18 @@ terraform  {
     commands  = get_terraform_commands_that_need_locking()
     arguments = ["-lock-timeout=20m"]
   }
+  extra_arguments "global_vars" {
+        commands = get_terraform_commands_that_need_locking()
+        required_var_files = [
+
+      # include globals var assignments - globals.tfvars
+      join("/", [
+        get_terragrunt_dir(),
+        "../../env/ec2",
+        get_env("TF_VAR_env", "dev"),
+        "terraform.tfvars"
+      ])]
+        }
 }
 
 remote_state  {

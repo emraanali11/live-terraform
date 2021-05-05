@@ -1,0 +1,1 @@
+max_server_count = 2
