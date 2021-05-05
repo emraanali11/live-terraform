@@ -1,11 +1,8 @@
 version: 3
 projects:
-- name: ec2
-  dir: services/ec2
-  workflow: terragrunt-ec2
-- name: iam
-  dir: services/iam
-  workflow: terragrunt-iam
+- name: pdx-d-ana-eks1
+  dir: infrastructure/provisioning/services/
+  workflow: terragrunt
   autoplan:
     enabled: false
 workflows:
@@ -15,10 +12,12 @@ workflows:
      - env:
          name: TERRAGRUNT_TFPATH
          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+     extra_args: ["-var-file", "provisioning/env/$PROJECT_NAME.yaml"]
      - run: terragrunt init -input=false -no-color
      - run: terragrunt plan -no-color -out=$PLANFILE
    apply:
      steps:
+     extra_args: ["-var-file", "provisioning/env/$PROJECT_NAME.yaml"]
      - env:
          name: TERRAGRUNT_TFPATH
          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
