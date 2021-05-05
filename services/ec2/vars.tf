@@ -10,10 +10,15 @@ variable "instance1" {
 
 variable "instance_type" {
   description = "The ec2 instance size you wish to create"
-  default = "t2.micro"
+  default     = "t2.micro"
   type        = string
 }
 
-variable "region" { 
-	default = "us-west-2"
+variable "region" {
+  default = "us-west-2"
+}
+
+variable "max_server_count" {
+  description = " Max instance count you wish to create"
+  default     = "1"
 }

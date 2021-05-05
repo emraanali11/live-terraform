@@ -6,7 +6,7 @@ projects:
     - '*.hcl'
     - '*.tf*'
     - ../env/
-  dir: services/ec2
+  dir: .
 version: 3
 workflows:
   terragrunt:
