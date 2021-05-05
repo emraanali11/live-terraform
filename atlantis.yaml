@@ -2,10 +2,12 @@ version: 3
 projects:
 - name: ec2
   dir: services/ec2
-  workflow: terragrunt
+  workflow: terragrunt-ec2
 - name: iam
   dir: services/iam
-  workflow: terragrunt
+  workflow: terragrunt-iam
+  autoplan:
+    enabled: false
 workflows:
  terragrunt:
    plan:
