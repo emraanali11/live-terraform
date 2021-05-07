@@ -5,6 +5,11 @@ projects:
   workflow: terragrunt
   autoplan:
     enabled: false
+- name: pdx-p-ana-eks1
+  dir: infrastructure/provisioning/services/
+  workflow: terragrunt
+  autoplan:
+    enabled: false
 workflows:
  terragrunt:
    plan:

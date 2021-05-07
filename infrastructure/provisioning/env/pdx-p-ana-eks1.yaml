@@ -1,0 +1,2 @@
+instance_type = "m4.xlarge"
+cluster_name = "pdx-p-ana-eks1"
